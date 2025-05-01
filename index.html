@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Project</title>
+</head>
+
+<body>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/examples/jsm/controls/TrackballControls.js": "https://cdn.jsdelivr.net/npm/three-trackballcontrols-ts@0.2.3/+esm",
+                "three/examples/jsm/loaders/GLTFLoader.js": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
+                "three/examples/jsm/loaders/FBXLoader.js" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/FBXLoader.js"
+            }
+        }
+    </script>
+    <script type="module" src="./3dview.js"></script>
+    <canvas class="myCanvas"></canvas>
+</body>
+
+</html>
