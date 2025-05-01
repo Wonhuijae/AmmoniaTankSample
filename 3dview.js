@@ -56,7 +56,7 @@ const loader = new FBXLoader();
 let model;
 
 loader.load(
-    'AmmoniaTank-0501.fbx',
+    './AmmoniaTank-0501.fbx',
     (object) => {
         model = object;
         model.scale.set(0.001, 0.001, 0.001)
