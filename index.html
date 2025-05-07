@@ -5,6 +5,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three.js Project</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .myCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            outline: none;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        :active,
+        :hover,
+        :focus {
+            outline: 0 !important;
+            outline-offset: 0;
+        }
+
+        ::before,
+        ::after {
+            position: absolute;
+            content: "";
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .myCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            outline: none;
+        }
+
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .btn-holder {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 10px auto 35px;
+            position: fixed;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            position: relative;
+            display: inline-block;
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin: 0px 25px 15px;
+            min-width: 150px;
+        }
+
+        .btn span {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            transition: 0.3s;
+        }
+
+        /*--- btn-4 ---*/
+        .btn-4 span {
+            color: rgb(155, 155, 155);
+            background-color: rgb(65, 65, 65);
+        }
+
+        .btn-4 span:hover {
+            color: rgb(255, 255, 255);
+        }
+
+        .btn-4::before,
+        .btn-4::after {
+            width: 15%;
+            height: 2px;
+            background-color: rgb(255, 255, 255);
+            z-index: 2;
+        }
+
+        /* 16. hover-border-6 */
+        .btn.hover-border-6::before,
+        .btn.hover-border-6::after {
+            top: 0;
+            transition: width 0.2s 0.35s ease-out;
+        }
+
+        .btn.hover-border-6::before {
+            right: 50%;
+        }
+
+        .btn.hover-border-6::after {
+            left: 50%;
+        }
+
+        .btn.hover-border-6:hover::before,
+        .btn.hover-border-6:hover::after {
+            width: 50%;
+            transition: width 0.2s ease-in;
+        }
+
+        .btn.hover-border-6 span::before,
+        .btn.hover-border-6 span::after {
+            width: 0%;
+            height: 0%;
+            background: transparent;
+            opacity: 0;
+            z-index: 2;
+            transition: width 0.2s ease-in, height 0.15s 0.2s linear, opacity 0s 0.35s;
+        }
+
+        .btn.hover-border-6 span::before {
+            top: 0;
+            left: 0;
+            border-left: 2px solid rgb(255, 255, 255);
+            border-bottom: 2px solid rgb(255, 255, 255);
+        }
+
+        .btn.hover-border-6 span::after {
+            top: 0;
+            right: 0;
+            border-right: 2px solid rgb(255, 255, 255);
+            border-bottom: 2px solid rgb(255, 255, 255);
+        }
+
+        .btn.hover-border-6 span:hover::before,
+        .btn.hover-border-6 span:hover::after {
+            width: 50%;
+            height: 96%;
+            opacity: 1;
+            transition: height 0.2s 0.2s ease-in, width 0.2s 0.4s linear, opacity 0s 0.2s;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,6 +178,11 @@
     </script>
     <script type="module" src="./3dview.js"></script>
     <canvas class="myCanvas"></canvas>
+    <div class="btn-holder">
+        <button class="btn btn-4 hover-border-6" id="resetBtn">
+            <span>카메라 초기화</span>
+        </button>
+    </div>
 </body>
 
 </html>

@@ -80,6 +80,7 @@ loader.load(
     }
 )
 
+document.getElementById("resetBtn").addEventListener('click', reset);
 
 // 렌더링
 renderer.setSize(sizes.width, sizes.height);
@@ -108,3 +109,9 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
+
+function reset() {
+    controls.reset()
+    camera.position.copy(model.position)
+    camera.position.z -= 0.6
+}
