@@ -2,6 +2,7 @@
 <html lang="ko">
 
 <head>
+    <link rel="icon" href="data:,">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three.js Project</title>
@@ -10,13 +11,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        .myCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            outline: none;
         }
 
         html,
@@ -37,21 +31,11 @@
             content: "";
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
         .myCanvas {
             position: fixed;
             top: 0;
             left: 0;
             outline: none;
-        }
-
-        html,
-        body {
-            overflow: hidden;
         }
 
         .btn-holder {
@@ -172,8 +156,8 @@
             "imports": {
                 "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
                 "three/examples/jsm/controls/TrackballControls.js": "https://cdn.jsdelivr.net/npm/three-trackballcontrols-ts@0.2.3/+esm",
-                "three/examples/jsm/loaders/GLTFLoader.js": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
-                "three/examples/jsm/loaders/FBXLoader.js" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/FBXLoader.js"
+                "three/examples/jsm/loaders/GLTFLoader.js": "https://unpkg.com/three@0.176.0/examples/jsm/loaders/GLTFLoader.js",
+                "three/examples/jsm/loaders/FBXLoader.js" : "https://unpkg.com/three@0.176.0/examples/jsm/loaders/FBXLoader.js"
             }
         }
     </script>

@@ -5,6 +5,7 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 
 // 씬
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x6e7c91);
 
 // 라이트
 const light = new THREE.AmbientLight(0xb6becc, 2);
@@ -17,11 +18,10 @@ const canvas = document.querySelector('canvas.myCanvas')
 const renderer = new THREE.WebGLRenderer(
     {
         canvas: canvas,
-        // alpha: true,
+        alpha: true,
         antialias: true
     }
 )
-
 
 // 웹브라우저 크기
 const sizes =
@@ -31,7 +31,7 @@ const sizes =
 }
 
 // 카메라
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.01, 1000)
 camera.position.set(0, 0, -5)
 scene.add(camera)
 
@@ -47,27 +47,32 @@ controls.minDistance = 0.25;
 controls.maxDistance = 1.5;
 
 // 음영처리
-const spotLight = new THREE.SpotLight(0xffffff, 10, 0, -90 * Math.PI / 180);
+const spotLight = new THREE.SpotLight(0xffffff, 1.5, 2, -90 * Math.PI / 180, 0.3, 1);
 spotLight.castShadow = true
 scene.add(spotLight)
 
 // 모델 로드
-const loader = new FBXLoader();
+// const loader = new FBXLoader();
+const loader = new GLTFLoader();
 let model;
 
 loader.load(
-    './AmmoniaTank-0501.fbx',
+    './blobErrorTest.glb',
     (object) => {
-        model = object;
-        model.scale.set(0.001, 0.001, 0.001)
+        // model = object;
+        model = object.scene;
+        model.scale.set(0.1, 0.1, 0.1)
         model.rotation.y = -90 * Math.PI / 180
 
         // 바운딩 박스
         const box = new THREE.Box3().setFromObject(model);
         const center = new THREE.Vector3();
         let centerPos = box.getCenter(center); // 중심점을 구한다.
+        // center.x += 0.5
 
         model.castShadow = true
+        model.receiveShadow = true;
+
         spotLight.position.copy(centerPos)
         spotLight.position.y += 1
 
