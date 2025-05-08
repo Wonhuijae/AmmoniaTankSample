@@ -1,0 +1,45 @@
+# Node.js 기본 무시 항목  
+node_modules/  
+npm-debug.log*  
+yarn-debug.log*  
+yarn-error.log*  
+.pnpm-debug.log*  
+
+# Electron 빌드 산출물  
+dist/  
+build/  
+out/  
+*.asar  
+*.node  
+
+# 캐시 및 로그  
+*.log  
+logs/  
+*.tsbuildinfo  
+.cache/  
+.cache-loader/  
+.vscode/  
+.idea/  
+
+# Electron 포장 도구 관련  
+release/  
+releases/  
+*.map  
+*.dmg  
+*.exe  
+*.app  
+*.msi  
+*.deb  
+*.rpm  
+*.snap  
+*.blockmap  
+
+# 설치 패키지  
+*.tar.gz  
+*.zip  
+*.7z  
+*.tar.bz2  
+
+# 환경 설정  
+.env  
+.env.*  
