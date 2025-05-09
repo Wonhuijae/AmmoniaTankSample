@@ -33,7 +33,7 @@
 
         .myCanvas {
             position: fixed;
-            top: 0;
+            top: 25px;
             left: 0;
             outline: none;
         }
@@ -147,6 +147,15 @@
             opacity: 1;
             transition: height 0.2s 0.2s ease-in, width 0.2s 0.4s linear, opacity 0s 0.2s;
         }
+
+        .dragDiv {
+            position: absolute;
+            background-color: gray;
+            height: 25px;
+            width: 100vw;
+            text-align: center;
+            -webkit-app-region: drag;
+        }
     </style>
 </head>
 
@@ -162,11 +171,14 @@
         }
     </script>
     <script type="module" src="./3dview.js"></script>
-    <canvas class="myCanvas"></canvas>
-    <div class="btn-holder">
-        <button class="btn btn-4 hover-border-6" id="resetBtn">
-            <span>카메라 초기화</span>
-        </button>
+    <div>
+        <div class="dragDiv">Drag영역</div>
+        <canvas class="myCanvas"></canvas>
+        <div class="btn-holder">
+            <button class="btn btn-4 hover-border-6" id="resetBtn">
+                <span>카메라 초기화</span>
+            </button>
+        </div>
     </div>
 </body>
 
