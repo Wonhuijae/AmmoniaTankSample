@@ -31,24 +31,39 @@
             content: "";
         }
 
+        .canvasContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         .myCanvas {
-            position: fixed;
+            position: absolute;
             top: 25px;
             left: 0;
+            width: 100%;
+            height: calc(100% - 25px);
             outline: none;
         }
 
         .btn-holder {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1000px;
-            margin: 10px auto 35px;
-            position: fixed;
+            position: absolute;
             left: 50%;
-            bottom: 10%;
+            bottom: 5%;
             transform: translateX(-50%);
+            z-index: 2;
         }
+
+        .dragDiv {
+            position: absolute;
+            background-color: gray;
+            height: 25px;
+            width: 100vw;
+            text-align: center;
+            -webkit-app-region: drag;
+        }
+
 
         .btn {
             position: relative;
@@ -147,15 +162,6 @@
             opacity: 1;
             transition: height 0.2s 0.2s ease-in, width 0.2s 0.4s linear, opacity 0s 0.2s;
         }
-
-        .dragDiv {
-            position: absolute;
-            background-color: gray;
-            height: 25px;
-            width: 100vw;
-            text-align: center;
-            -webkit-app-region: drag;
-        }
     </style>
 </head>
 
@@ -165,13 +171,16 @@
             "imports": {
                 "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
                 "three/examples/jsm/controls/TrackballControls.js": "https://cdn.jsdelivr.net/npm/three-trackballcontrols-ts@0.2.3/+esm",
+                "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/controls/OrbitControls.js",
+                "three/examples/jsm/controls/DragControls.js": "https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/controls/DragControls.js",
+                "three/examples/jsm/controls/TransformControls.js": "https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/controls/TransformControls.js",
                 "three/examples/jsm/loaders/GLTFLoader.js": "https://unpkg.com/three@0.176.0/examples/jsm/loaders/GLTFLoader.js",
                 "three/examples/jsm/loaders/FBXLoader.js" : "https://unpkg.com/three@0.176.0/examples/jsm/loaders/FBXLoader.js"
             }
         }
     </script>
     <script type="module" src="./3dview.js"></script>
-    <div>
+    <div class="canvasContainer">
         <div class="dragDiv">Drag영역</div>
         <canvas class="myCanvas"></canvas>
         <div class="btn-holder">
